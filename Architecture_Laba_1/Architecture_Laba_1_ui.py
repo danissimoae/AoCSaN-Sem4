@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setStyleSheet("")
         self.centralwidget.setObjectName("centralwidget")
         self.textEditAnswer = QtWidgets.QTextEdit(parent=self.centralwidget)
-        self.textEditAnswer.setGeometry(QtCore.QRect(10, 230, 271, 151))
+        self.textEditAnswer.setGeometry(QtCore.QRect(10, 230, 481, 151))
         self.textEditAnswer.setMinimumSize(QtCore.QSize(0, 0))
         self.textEditAnswer.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 0);\n"
@@ -56,19 +56,32 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.lineEditIp = QtWidgets.QLineEdit(parent=self.layoutWidget)
+        self.lineEditEndIp = QtWidgets.QLineEdit(parent=self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("Cascadia Code")
         font.setPointSize(10)
         font.setBold(True)
         font.setWeight(75)
-        self.lineEditIp.setFont(font)
-        self.lineEditIp.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.lineEditEndIp.setFont(font)
+        self.lineEditEndIp.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 0);\n"
 "border: 2px solid rgb(255, 255, 255);\n"
 "border-radius: 8px;")
-        self.lineEditIp.setObjectName("lineEditIp")
-        self.horizontalLayout.addWidget(self.lineEditIp)
+        self.lineEditEndIp.setObjectName("lineEditEndIp")
+        self.horizontalLayout.addWidget(self.lineEditEndIp)
+        self.lineEditBeginIp = QtWidgets.QLineEdit(parent=self.layoutWidget)
+        font = QtGui.QFont()
+        font.setFamily("Cascadia Code")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.lineEditBeginIp.setFont(font)
+        self.lineEditBeginIp.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: rgb(0, 0, 0);\n"
+"border: 2px solid rgb(255, 255, 255);\n"
+"border-radius: 8px;")
+        self.lineEditBeginIp.setObjectName("lineEditBeginIp")
+        self.horizontalLayout.addWidget(self.lineEditBeginIp)
         self.pushButtonGenerateAnswer = QtWidgets.QPushButton(parent=self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("Cascadia Code")
@@ -83,23 +96,10 @@ class Ui_MainWindow(object):
 "")
         self.pushButtonGenerateAnswer.setObjectName("pushButtonGenerateAnswer")
         self.horizontalLayout.addWidget(self.pushButtonGenerateAnswer)
-        self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(290, 230, 191, 131))
-        font = QtGui.QFont()
-        font.setFamily("Cascadia Code")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label.setFont(font)
-        self.label.setStyleSheet("color: rgb(255, 255, 255);\n"
-"")
-        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label.setObjectName("label")
         self.layoutWidget.raise_()
         self.textEditAnswer.raise_()
         self.labelTitle.raise_()
         self.labelGif.raise_()
-        self.label.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -110,5 +110,14 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.labelGif.setText(_translate("MainWindow", "TextLabel"))
         self.labelTitle.setText(_translate("MainWindow", "Хочу узнать параметры сети!"))
-        self.pushButtonGenerateAnswer.setText(_translate("MainWindow", "Показать параметры сети"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.pushButtonGenerateAnswer.setText(_translate("MainWindow", "Показать"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())
